@@ -26,8 +26,9 @@ class IpodOrderCalculator:
     def _check_valid_order_size(ordered_ipods):
         return ordered_ipods < 10 or ordered_ipods % 10 == 0
 
-    def _calculate_shipping_country_cost(self, shipping_country, shipped_ipods):
-        return shipping_country.calculate_order_cost(shipped_ipods) + (self.shipping_cost_per_ten_units * (shipped_ipods // 10))
+    @staticmethod
+    def _calculate_shipping_country_cost(shipping_country, shipped_ipods):
+        return shipping_country.calculate_shipping_order_cost(shipped_ipods)
 
     @staticmethod
     def _calculate_ordering_country_cost(ordering_country, shipped_ipods):
