@@ -1,5 +1,5 @@
 
-from Exceptions.OrderedIpodsGreaterThanIpodsInStockException import OrderedIpodsGreaterThanIpodsInStockException
+from Exceptions.OutOfStockException import OutOfStockException
 
 class Country:
 
@@ -11,6 +11,6 @@ class Country:
 
     def calculate_order_cost(self, number_of_ipods_ordered):
         if number_of_ipods_ordered > self.ipods_in_stock:
-            raise OrderedIpodsGreaterThanIpodsInStockException
+            raise OutOfStockException
         return number_of_ipods_ordered * self.price_per_ipod
 
